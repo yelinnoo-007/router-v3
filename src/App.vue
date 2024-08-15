@@ -1,11 +1,32 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <RouterLink :to="{ name: 'home' }">Home</RouterLink> |
+    <RouterLink :to="{ name: 'about' }">About</RouterLink> |
+    <RouterLink :to="{ name: 'job' }">Jobs</RouterLink>
   </nav>
-  <router-view/>
+  <RouterView />
+  <div>
+    <button @click="redirect">Redirect</button>
+    <button @click="forward">Go Forward</button>
+    <button @click="backward">Go Backward</button>
+  </div>
 </template>
 
+<script>
+export default {
+  methods: {
+    redirect() {
+      this.$router.push({ name: "home" });
+    },
+    forward() {
+      this.$router.go(+1);
+    },
+    backward() {
+      this.$router.go(-1);
+    },
+  },
+};
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
@@ -22,9 +43,13 @@ nav {
 nav a {
   font-weight: bold;
   color: #2c3e50;
+  text-decoration: none;
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: white;
+  background-color: crimson;
+  padding: 5px;
+  border-radius: 3px;
 }
 </style>
