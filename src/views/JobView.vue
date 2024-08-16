@@ -29,11 +29,6 @@ export default {
       ],
     };
   },
-  methods: {
-    jobDetail() {
-      this.show = true;
-    },
-  },
 };
 </script>
 
