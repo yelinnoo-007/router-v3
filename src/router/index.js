@@ -25,12 +25,13 @@ const routes = [
     path: "/job/detail/:id",
     name: "jobDetail",
     component: JobDetailView,
-    // props: true,
-    props: (route) => ({
-      id: route.params.id,
-      title: route.query.title,
-      detail: route.query.detail,
-    }),
+    props: true,
+    //sending data using query attribute in JobView
+    // props: (route) => ({
+    //   id: route.params.id,
+    //   title: route.query.title,
+    //   detail: route.query.detail,
+    // }),
   },
   {
     path: "/all/jobs",

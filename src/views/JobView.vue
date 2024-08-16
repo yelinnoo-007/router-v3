@@ -6,7 +6,7 @@
         :to="{
           name: 'jobDetail',
           params: { id: job.id },
-          query: { title: job.title, detail: job.detail },
+          // query: { title: job.title, detail: job.detail },
         }"
         >{{ job.title }}</RouterLink
       >
@@ -22,12 +22,20 @@ export default {
   },
   data() {
     return {
-      jobs: [
-        { id: 1, title: "Project Manager", detail: "I'm a project manager." },
-        { id: 2, title: "Designer", detail: "I'm a designer." },
-        { id: 3, title: "Developer", detail: "I'm a developer." },
-      ],
+      jobs: [],
     };
+  },
+  mounted() {
+    fetch("http://localhost:3000/jobs")
+      .then((response) => {
+        return response.json();
+      })
+      .then((data) => {
+        this.jobs = data;
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
   },
 };
 </script>

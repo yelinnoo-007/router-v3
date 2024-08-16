@@ -1,0 +1,7 @@
+{
+  "jobs": [
+    { "id": 1, "title": "web developer", "detail": "I'm a web developer." },
+    { "id": 2, "title": "web designer", "detail": "I'm a web designer." },
+    { "id": 3, "title": "web architect", "detail": "I'm a web architect." }
+  ]
+}
